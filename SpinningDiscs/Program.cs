@@ -2,7 +2,7 @@
 
 /* CD AND DVD CLASSES */
 
-void RunCDsAndDVDs()
+static void RunCDAndDVD()
 {
     // Create objects of the CD and DVD classes
     CD theNorthBorders = new("The North Borders", true);
@@ -56,18 +56,22 @@ void RunCDsAndDVDs()
     theNorthBorders.WriteFile(tooBigFile);
 }
 
-RunCDsAndDVDs();
+RunCDAndDVD();
 
 /* FLOPPYDISK & VINYLRECORD CLASSES */
 
-void RunFloppyDiskAndRecord()
+static void RunFloppyDiskAndRecord()
 {
 
 }
+
+RunFloppyDiskAndRecord();
 
 /* FRISBEE & WHEEL CLASSES */
 
-void RunFrisbeeAndWheel()
+static void RunFrisbeeAndWheel()
 {
 
 }
+
+RunFrisbeeAndWheel();
