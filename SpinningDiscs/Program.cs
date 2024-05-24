@@ -60,3 +60,14 @@ RunCDsAndDVDs();
 
 /* FLOPPYDISK & VINYLRECORD CLASSES */
 
+void RunFloppyDiskAndRecord()
+{
+
+}
+
+/* FRISBEE & WHEEL CLASSES */
+
+void RunFrisbeeAndWheel()
+{
+    
+}
