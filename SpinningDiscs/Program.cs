@@ -10,22 +10,22 @@ void RunCDsAndDVDs()
     DVD friendsSeason3 = new("Friends: Season 3");
 
     // Create File objects and add them to the CD and DVD objects using writeData()
-    MediaFile firstFires = new MediaFile("First Fires", 50);
-    MediaFile cirrus = new MediaFile("Cirrus", 61);
-    MediaFile transit = new MediaFile("Transit", 57);
+    MediaFile firstFires = new("First Fires", 50);
+    MediaFile cirrus = new("Cirrus", 61);
+    MediaFile transit = new("Transit", 57);
     theNorthBorders.WriteFile(firstFires);
     theNorthBorders.WriteFile(cirrus);
     theNorthBorders.WriteFile(transit);
 
-    MediaFile festivalPoster = new MediaFile("festival-poster.psd", 240);
-    MediaFile companyLogo = new MediaFile("company-logo.ai", 52);
+    MediaFile festivalPoster = new("festival-poster.psd", 240);
+    MediaFile companyLogo = new("company-logo.ai", 52);
     graphicDesignProjects.WriteFile(festivalPoster);
     graphicDesignProjects.WriteFile(companyLogo);
 
-    MediaFile s3e1 = new MediaFile("S3:E1 - The One with the Princess Leia Fantasy", 420);
-    MediaFile s3e2 = new MediaFile("S3:E1 - The One Where No One's Ready", 420);
-    MediaFile s3e3 = new MediaFile("S3:E1 - The One with the Jam", 420);
-    MediaFile s3e4 = new MediaFile("S3:E1 - The One with the Metaphorical Tunnel", 420);
+    MediaFile s3e1 = new("S3:E1 - The One with the Princess Leia Fantasy", 420);
+    MediaFile s3e2 = new("S3:E1 - The One Where No One's Ready", 420);
+    MediaFile s3e3 = new("S3:E1 - The One with the Jam", 420);
+    MediaFile s3e4 = new("S3:E1 - The One with the Metaphorical Tunnel", 420);
     friendsSeason3.WriteFile(s3e1);
     friendsSeason3.WriteFile(s3e2);
     friendsSeason3.WriteFile(s3e3);
@@ -69,5 +69,5 @@ void RunFloppyDiskAndRecord()
 
 void RunFrisbeeAndWheel()
 {
-    
+
 }
