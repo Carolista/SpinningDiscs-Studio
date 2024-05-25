@@ -4,19 +4,20 @@ namespace SpinningDiscs;
 
 public abstract class Media: BaseDisc
 {
-    public readonly double capacity;
     public readonly List<MediaFile> files = new();
+
+    public double Capacity { get; set; }
 
     public Media(string name, string discType, int spinRate, double capacity) : base(name, discType, spinRate)
     {
-        this.capacity = capacity;
+        Capacity = capacity;
     }
 
     public override string ToString()
     {
         string nl = Environment.NewLine;
         return base.ToString()
-            + "Capacity: " + capacity + " MB" + nl
+            + "Capacity: " + Capacity + " MB" + nl
             + "Space Used: " + GetSpaceUsed() + " MB" + nl
             + "Available Space: " + GetSpaceAvailable() + " MB" + nl;
     }
@@ -61,6 +62,6 @@ public abstract class Media: BaseDisc
 
     public double GetSpaceAvailable()
     {
-        return capacity == 0 ? 0 : capacity - GetSpaceUsed();
+        return Capacity == 0 ? 0 : Capacity - GetSpaceUsed();
     }
 }

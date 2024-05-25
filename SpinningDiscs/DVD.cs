@@ -16,7 +16,7 @@ namespace SpinningDiscs
             SpinDisc();
             if (files.Contains(file)) {
                 Console.WriteLine("The video " + file.Name + " has already been added.");
-            } else if (GetSpaceUsed() + file.Size > capacity) {
+            } else if (GetSpaceUsed() + file.Size > Capacity) {
                 Console.WriteLine("WARNING: There is not enough space on the " + DiscType + " for " + file.Name + ".");
             } else {
                 files.Add(file);
@@ -44,6 +44,10 @@ namespace SpinningDiscs
             {
                 files.Remove(file);
                 Console.WriteLine("The file " + file.Name + " has been removed from the " + DiscType + ".");
+            }
+            else
+            {
+                Console.WriteLine("File not found.");
             }
         }
 
