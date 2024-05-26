@@ -3,33 +3,21 @@
 public class FloppyDisk : Media, IRewritable, IVariableRPM
 {
 
-    private static readonly Dictionary<double, int> speeds = new() 
-    {
-        { 3.5, 300 },
-        { 5.25, 360 }
-    };
-    private static readonly Dictionary<double, double> capacities = new() 
-    {
-        { 3.5, 1.44 },
-        { 5.25, 360 }
-    };
-
-    private readonly double width;
+    public double Width { get; set; }
 
     public FloppyDisk(string name, double width) : base(name, "floppy disk", 0, 0)
     {
-        this.width = width;
+        Width = width;
+        SpinRate = CalculateSpinRate();
+        Capacity = CalculateCapacity();
     }
 
-    public bool IsValid()
+    public override string ToString()
     {
-        return speeds.ContainsKey(width) && capacities.ContainsKey(width);
+        return base.ToString() + GetFormattedFileList("Files");
     }
 
-    public int CalculateSpinRate()
-    {
-        return speeds[width];
-    }
+    // Methods required by IRewritable
 
     public void WriteFile(MediaFile file)
     {
@@ -76,6 +64,30 @@ public class FloppyDisk : Media, IRewritable, IVariableRPM
         SpinDisc();
         files.Clear();
         Console.WriteLine("Disc reformatted to a blank " + DiscType + ".");
+    }
+
+    // Method required by VariableRPM
+
+    public int CalculateSpinRate()
+    {
+        Dictionary<double, int> speeds = new() 
+        {
+            { 3.5, 300 },
+            { 5.25, 360 }
+        };
+        return speeds[Width];
+    }
+
+    // Additional instance method
+
+    private double CalculateCapacity()
+    {
+        Dictionary<double, double> capacities = new() 
+        {
+            { 3.5, 1.44 },
+            { 5.25, 360 }
+        };
+        return capacities[Width];
     }
 
 }
