@@ -58,20 +58,70 @@ static void RunCDAndDVD()
 
 RunCDAndDVD();
 
+
 /* FLOPPYDISK & VINYLRECORD CLASSES */
 
 static void RunFloppyDiskAndRecord()
 {
+    // Create objects of the FloppyDisk and VinylRecord classes
+    FloppyDisk philosophyPapers = new("Philosophy Papers", 3.5);
+    VinylRecord magCityInstr = new("Magnificent City Instrumentals", 12);
 
+    // Create File objects and add them to the FloppyDisk object using writeData()
+    MediaFile historyOfPhilosophy = new("history-of-philosophy.doc", 0.4);
+    MediaFile absoluteTruths = new("absolute-truths.doc", 0.63);
+    philosophyPapers.WriteFile(historyOfPhilosophy);
+    philosophyPapers.WriteFile(absoluteTruths);
+
+    // Create File objects and add them (as an array) to the VinylRecord object using pressVinyl()
+    MediaFile aBeautifulMine = new("A Beautiful Mine", 53);
+    MediaFile fire = new("Fire", 41);
+    MediaFile aSundayMystery = new("A Sunday Mystery", 13);
+    MediaFile[] files = { aBeautifulMine, fire, aSundayMystery };
+    magCityInstr.PressVinyl(files);
+
+    // Print both objects
+    Console.WriteLine(philosophyPapers);
+    Console.WriteLine(magCityInstr);
+
+    // Run a file from the FloppyDisk object
+    philosophyPapers.RunFile(absoluteTruths);
+
+    // Play a track from the VinylRecord object
+    magCityInstr.PlayTrack(aBeautifulMine);
 }
 
 RunFloppyDiskAndRecord();
+
 
 /* FRISBEE & WHEEL CLASSES */
 
 static void RunFrisbeeAndWheel()
 {
+    // Create multiple objects of the Wheel and Frisbee classes
+        Wheel michelin = new("Michelin Defender 2 235/60 R18 106H", 18);
+        Wheel goodyear = new("Goodyear Edge A/T 225/75 R15", 15);
+        Frisbee ultimateDisc = new("Innova Pulsar", "Ultimate disc");
+        Frisbee freestyleDisc = new("Discraft Sky Styler", "Freestyle disc");
 
+        // Print each object
+        Console.WriteLine(michelin);
+        Console.WriteLine(goodyear);
+        Console.WriteLine(ultimateDisc);
+        Console.WriteLine(freestyleDisc);
+
+        // Drive a car for one Wheel object
+        michelin.DriveCar();
+
+        // Change the MPH of both wheels and drive cars
+        michelin.MilesPerHour = 45;
+        goodyear.MilesPerHour = 70;
+        michelin.DriveCar();
+        goodyear.DriveCar();
+
+        // Throw a disc for each Frisbee object
+        ultimateDisc.ThrowFrisbee();
+        freestyleDisc.ThrowFrisbee();
 }
 
 RunFrisbeeAndWheel();

@@ -62,6 +62,7 @@ public abstract class Media: BaseDisc
 
     public double GetSpaceAvailable()
     {
-        return Capacity == 0 ? 0 : Capacity - GetSpaceUsed();
+        double space = Capacity == 0 ? 0 : Capacity - GetSpaceUsed();
+        return Math.Round(space, 2);
     }
 }
