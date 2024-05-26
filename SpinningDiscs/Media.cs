@@ -37,19 +37,6 @@ public abstract class Media: BaseDisc
         return fileList.ToString();
     }
 
-    public bool FileIsPresent(MediaFile file)
-    {
-        if (files.Contains(file))
-        {
-            return true;
-        }
-        else
-        {
-            Console.WriteLine("That file does not exist on this " + DiscType + ".");
-            return false;
-        }
-    }
-
     public double GetSpaceUsed()
     {
         double total = 0.0;

@@ -18,6 +18,8 @@
             return base.ToString() + GetFileList(header);
         }
 
+        // Methods required by IRewritable
+
         public void WriteFile(MediaFile file)
         {
             SpinDisc();
@@ -40,7 +42,7 @@
         public void RunFile(MediaFile file)
         {
             SpinDisc();
-            if (FileIsPresent(file))
+            if (files.Contains(file))
             {
                 string verb = IsMusicCD ? "Playing " : "Opening file ";
                 Console.WriteLine(verb + file.Name + "...");
@@ -58,7 +60,7 @@
                 Console.WriteLine("Individual files cannot be removed from a music CD once written.");
             } else {
                 SpinDisc();
-                if (FileIsPresent(file))
+                if (files.Contains(file))
                 {
                     files.Remove(file);
                     Console.WriteLine("The file " + file.Name + " has been removed from the " + DiscType + ".");

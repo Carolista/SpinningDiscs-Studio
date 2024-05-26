@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SpinningDiscs
+﻿namespace SpinningDiscs
 {
     public class DVD : Media, IRewritable
     {
@@ -10,6 +8,8 @@ namespace SpinningDiscs
         {
             return base.ToString() + GetFileList("Video Files");
         }
+
+        // Methods required by IRewritable
 
         public void WriteFile(MediaFile file)
         {
@@ -27,7 +27,7 @@ namespace SpinningDiscs
         public void RunFile(MediaFile file)
         {
             SpinDisc();
-            if (FileIsPresent(file))
+            if (files.Contains(file))
             {
                 Console.WriteLine("Watching " + file.Name + "...");
             }
@@ -40,7 +40,7 @@ namespace SpinningDiscs
         public void RemoveFile(MediaFile file)
         {
             SpinDisc();
-            if (FileIsPresent(file))
+            if (files.Contains(file))
             {
                 files.Remove(file);
                 Console.WriteLine("The file " + file.Name + " has been removed from the " + DiscType + ".");
