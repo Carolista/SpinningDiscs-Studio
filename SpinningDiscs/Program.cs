@@ -66,16 +66,20 @@ static void RunFloppyDiskAndRecord()
     FloppyDisk philosophyPapers = new("Philosophy Papers", 3.5);
     VinylRecord magCityInstr = new("Magnificent City Instrumentals", 12);
 
-    // Create File objects and add them to the FloppyDisk object using writeData()
+    // Create files for the floppy disk
     MediaFile historyOfPhilosophy = new("history-of-philosophy.doc", 0.4);
     MediaFile absoluteTruths = new("absolute-truths.doc", 0.63);
+
+    // Add files to the floppy disk
     philosophyPapers.WriteFile(historyOfPhilosophy);
     philosophyPapers.WriteFile(absoluteTruths);
 
-    // Create File objects and add them (as an array) to the VinylRecord object using pressVinyl()
+    // Create tracks for the record
     MediaFile aBeautifulMine = new("A Beautiful Mine", 53);
     MediaFile fire = new("Fire", 41);
     MediaFile aSundayMystery = new("A Sunday Mystery", 13);
+
+    // Press the vinyl record
     MediaFile[] files = { aBeautifulMine, fire, aSundayMystery };
     magCityInstr.PressVinyl(files);
 
@@ -83,10 +87,10 @@ static void RunFloppyDiskAndRecord()
     Console.WriteLine(philosophyPapers);
     Console.WriteLine(magCityInstr);
 
-    // Run a file from the FloppyDisk object
+    // Run a file from the floppy disk
     philosophyPapers.RunFile(absoluteTruths);
 
-    // Play a track from the VinylRecord object
+    // Play a track from the record
     magCityInstr.PlayTrack(aBeautifulMine);
 }
 

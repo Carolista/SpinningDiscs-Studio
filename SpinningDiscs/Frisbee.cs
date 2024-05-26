@@ -1,6 +1,4 @@
-﻿using System.Net.NetworkInformation;
-
-namespace SpinningDiscs;
+﻿namespace SpinningDiscs;
 
 public class Frisbee : BaseDisc, IVariableRPM
 {
