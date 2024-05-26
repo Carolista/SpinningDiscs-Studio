@@ -8,7 +8,7 @@ namespace SpinningDiscs
 
         public override string ToString()
         {
-            return base.ToString() + GetFormattedFileList("Video Files");
+            return base.ToString() + GetFileList("Video Files");
         }
 
         public void WriteFile(MediaFile file)
@@ -51,7 +51,7 @@ namespace SpinningDiscs
             }
         }
 
-        public void ReformatDisc()
+        public void Reformat()
         {
             SpinDisc();
             files.Clear();

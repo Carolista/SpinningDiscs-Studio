@@ -22,7 +22,7 @@ public abstract class Media: BaseDisc
             + "Available Space: " + GetSpaceAvailable() + " MB" + nl;
     }
 
-    public string GetFormattedFileList(string header)
+    public string GetFileList(string header)
     {
         StringBuilder fileList = new();
         string nl = Environment.NewLine;

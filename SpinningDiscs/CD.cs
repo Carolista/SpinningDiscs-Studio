@@ -15,7 +15,7 @@
         public override string ToString()
         {
             string header = IsMusicCD ? "Tracks" : "Files";
-            return base.ToString() + GetFormattedFileList(header);
+            return base.ToString() + GetFileList(header);
         }
 
         public void WriteFile(MediaFile file)
@@ -70,7 +70,7 @@
             }
         }
 
-        public void ReformatDisc()
+        public void Reformat()
         {
             SpinDisc();
             files.Clear();
