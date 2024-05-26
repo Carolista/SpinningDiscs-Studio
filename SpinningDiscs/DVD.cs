@@ -12,6 +12,8 @@ namespace SpinningDiscs
             return base.ToString() + GetFileList("Video Files");
         }
 
+        // Files required by IRewritable
+
         public void WriteFile(MediaFile file)
         {
             SpinDisc();

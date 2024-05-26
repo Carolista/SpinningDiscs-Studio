@@ -9,23 +9,25 @@ static void RunCDAndDVD()
     CD graphicDesignProjects = new("Graphic Design Projects");
     DVD friendsSeason3 = new("Friends: Season 3");
 
-    // Create File objects and add them to the CD and DVD objects using writeData()
+    // Create MediaFile objects
     MediaFile firstFires = new("First Fires", 50);
     MediaFile cirrus = new("Cirrus", 61);
     MediaFile transit = new("Transit", 57);
-    theNorthBorders.WriteFile(firstFires);
-    theNorthBorders.WriteFile(cirrus);
-    theNorthBorders.WriteFile(transit);
 
     MediaFile festivalPoster = new("festival-poster.psd", 240);
     MediaFile companyLogo = new("company-logo.ai", 52);
-    graphicDesignProjects.WriteFile(festivalPoster);
-    graphicDesignProjects.WriteFile(companyLogo);
 
     MediaFile s3e1 = new("S3:E1 - The One with the Princess Leia Fantasy", 420);
     MediaFile s3e2 = new("S3:E1 - The One Where No One's Ready", 420);
     MediaFile s3e3 = new("S3:E1 - The One with the Jam", 420);
     MediaFile s3e4 = new("S3:E1 - The One with the Metaphorical Tunnel", 420);
+
+    // Write files to the CDs and DVD
+    theNorthBorders.WriteFile(firstFires);
+    theNorthBorders.WriteFile(cirrus);
+    theNorthBorders.WriteFile(transit);
+    graphicDesignProjects.WriteFile(festivalPoster);
+    graphicDesignProjects.WriteFile(companyLogo);
     friendsSeason3.WriteFile(s3e1);
     friendsSeason3.WriteFile(s3e2);
     friendsSeason3.WriteFile(s3e3);
@@ -36,28 +38,25 @@ static void RunCDAndDVD()
     Console.WriteLine(graphicDesignProjects);
     Console.WriteLine(friendsSeason3);
 
-    // Use runFile() on both CD files
+    // Run some CD files
     theNorthBorders.RunFile(cirrus);
     graphicDesignProjects.RunFile(companyLogo);
 
-    // Try to write a file to the DVD that has already been written
+    // Try to write a file that has already been written to the DVD
     friendsSeason3.WriteFile(s3e2);
 
-    // Use eraseData() to remove one file from the CD-ROM object, and then try to run that file
+    // Remove one file from the CD-RW object, then try to run that file
     graphicDesignProjects.RemoveFile(festivalPoster);
-    theNorthBorders.RunFile(festivalPoster);
+    graphicDesignProjects.RunFile(festivalPoster);
 
-    // Use reformatDisc() to wipe all files from the music CD, and then try to run a file from it
+    // Wipe all files from the music CD, then try to run a file from it
     theNorthBorders.Reformat();
     theNorthBorders.RunFile(transit);
 
-    // Create a 720 MB MP4 file and try to write it to the CD that is no longer a music CD
+    // Try to write the file below to the CD that is no longer a music CD
     MediaFile tooBigFile = new("too-big-file.mp4", 720);
     theNorthBorders.WriteFile(tooBigFile);
 }
-
-RunCDAndDVD();
-
 
 /* FLOPPYDISK & VINYLRECORD CLASSES */
 
@@ -91,37 +90,36 @@ static void RunFloppyDiskAndRecord()
     magCityInstr.PlayTrack(aBeautifulMine);
 }
 
-RunFloppyDiskAndRecord();
-
-
 /* FRISBEE & WHEEL CLASSES */
 
 static void RunFrisbeeAndWheel()
 {
     // Create multiple objects of the Wheel and Frisbee classes
-        Wheel michelin = new("Michelin Defender 2 235/60 R18 106H", 18);
-        Wheel goodyear = new("Goodyear Edge A/T 225/75 R15", 15);
-        Frisbee ultimateDisc = new("Innova Pulsar", "Ultimate disc");
-        Frisbee freestyleDisc = new("Discraft Sky Styler", "Freestyle disc");
+    Wheel michelin = new("Michelin Defender 2 235/60 R18 106H", 18);
+    Wheel goodyear = new("Goodyear Edge A/T 225/75 R15", 15);
+    Frisbee ultimateDisc = new("Innova Pulsar", "Ultimate disc");
+    Frisbee freestyleDisc = new("Discraft Sky Styler", "Freestyle disc");
 
-        // Print each object
-        Console.WriteLine(michelin);
-        Console.WriteLine(goodyear);
-        Console.WriteLine(ultimateDisc);
-        Console.WriteLine(freestyleDisc);
+    // Print each object
+    Console.WriteLine(michelin);
+    Console.WriteLine(goodyear);
+    Console.WriteLine(ultimateDisc);
+    Console.WriteLine(freestyleDisc);
 
-        // Drive a car for one Wheel object
-        michelin.DriveCar();
+    // Drive a car for one Wheel object
+    michelin.DriveCar();
 
-        // Change the MPH of both wheels and drive cars
-        michelin.MilesPerHour = 45;
-        goodyear.MilesPerHour = 70;
-        michelin.DriveCar();
-        goodyear.DriveCar();
+    // Change the MPH of both wheels and drive cars
+    michelin.MilesPerHour = 45;
+    goodyear.MilesPerHour = 70;
+    michelin.DriveCar();
+    goodyear.DriveCar();
 
-        // Throw a disc for each Frisbee object
-        ultimateDisc.ThrowFrisbee();
-        freestyleDisc.ThrowFrisbee();
+    // Throw a disc for each Frisbee object
+    ultimateDisc.ThrowFrisbee();
+    freestyleDisc.ThrowFrisbee();
 }
 
+// RunCDAndDVD();
+RunFloppyDiskAndRecord();
 RunFrisbeeAndWheel();

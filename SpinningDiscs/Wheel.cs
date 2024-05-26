@@ -19,6 +19,8 @@ public class Wheel : BaseDisc, IVariableRPM
             + "Current MPH: " + MilesPerHour + nl;
     }
 
+    // Instance method
+
     public void DriveCar()
     {
         if (MilesPerHour > 0)

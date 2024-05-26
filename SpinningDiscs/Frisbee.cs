@@ -17,6 +17,8 @@ public class Frisbee : BaseDisc, IVariableRPM
         return base.ToString() + "DIAMETER: " + Diameter;
     }
 
+    // Instance methods
+
     public double LookUpDiameter()
     {
         Dictionary<string, double> diameters = new() {

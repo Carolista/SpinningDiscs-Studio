@@ -17,6 +17,8 @@ public class FloppyDisk : Media, IRewritable, IVariableRPM
         return base.ToString() + GetFileList("Files");
     }
 
+    // Instance method
+
     private double CalculateCapacity()
     {
         Dictionary<double, double> capacities = new() { { 3.5, 1.44 }, { 5.25, 360 } };
