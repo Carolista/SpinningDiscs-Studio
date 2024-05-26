@@ -28,7 +28,7 @@
             {
                 Console.WriteLine("The " + fileType + file.Name + " has already been added.");
             }
-            else if (GetSpaceUsed() + file.Size > Capacity)
+            else if (GetSpaceAvailable() < file.Size)
             {
                 Console.WriteLine("WARNING: There is not enough space on the " + DiscType + " for " + file.Name + ".");
             }

@@ -18,9 +18,9 @@ static void RunCDAndDVD()
     MediaFile companyLogo = new("company-logo.ai", 52);
 
     MediaFile s3e1 = new("S3:E1 - The One with the Princess Leia Fantasy", 420);
-    MediaFile s3e2 = new("S3:E1 - The One Where No One's Ready", 420);
-    MediaFile s3e3 = new("S3:E1 - The One with the Jam", 420);
-    MediaFile s3e4 = new("S3:E1 - The One with the Metaphorical Tunnel", 420);
+    MediaFile s3e2 = new("S3:E2 - The One Where No One's Ready", 420);
+    MediaFile s3e3 = new("S3:E3 - The One with the Jam", 420);
+    MediaFile s3e4 = new("S3:E4 - The One with the Metaphorical Tunnel", 420);
 
     // Write files to the CDs and DVD
     theNorthBorders.WriteFile(firstFires);
