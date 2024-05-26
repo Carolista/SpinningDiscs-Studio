@@ -2,13 +2,14 @@
 
 namespace SpinningDiscs;
 
-public abstract class Media: BaseDisc
+public abstract class Media : BaseDisc
 {
     public readonly List<MediaFile> files = new();
 
     public double Capacity { get; set; }
 
-    public Media(string name, string discType, int spinRate, double capacity) : base(name, discType, spinRate)
+    public Media(string name, string discType, int spinRate, double capacity)
+        : base(name, discType, spinRate)
     {
         Capacity = capacity;
     }
@@ -22,32 +23,19 @@ public abstract class Media: BaseDisc
             + "Available Space: " + GetSpaceAvailable() + " MB" + nl;
     }
 
-    public string GetFormattedFileList(string header)
+    public string GetFileList(string header)
     {
         StringBuilder fileList = new();
         string nl = Environment.NewLine;
         if (files.Count > 0)
         {
             fileList.Append(nl).Append(header).Append(':');
-            foreach (MediaFile file in files) 
+            foreach (MediaFile file in files)
             {
                 fileList.Append(nl).Append('\t').Append(file);
             }
         }
         return fileList.ToString();
-    }
-
-    public bool FileIsPresent(MediaFile file)
-    {
-        if (files.Contains(file))
-        {
-            return true;
-        }
-        else
-        {
-            Console.WriteLine("That file does not exist on this " + DiscType + ".");
-            return false;
-        }
     }
 
     public double GetSpaceUsed()

@@ -2,10 +2,10 @@
 {
     public class CD : Media, IRewritable
     {
-
         public bool IsMusicCD { get; set; }
 
-        public CD(string name, bool isMusicCD) : base(name, isMusicCD ? "music CD" : "CD-RW", 800, 700)
+        public CD(string name, bool isMusicCD)
+            : base(name, isMusicCD ? "music CD" : "CD-RW", 800, 700)
         {
             IsMusicCD = isMusicCD;
         }
@@ -15,8 +15,10 @@
         public override string ToString()
         {
             string header = IsMusicCD ? "Tracks" : "Files";
-            return base.ToString() + GetFormattedFileList(header);
+            return base.ToString() + GetFileList(header);
         }
+
+        // Files required by IRewritable
 
         public void WriteFile(MediaFile file)
         {
@@ -28,19 +30,24 @@
             }
             else if (GetSpaceUsed() + file.Size > Capacity)
             {
-                Console.WriteLine("WARNING: There is not enough space on the " + DiscType + " for " + file.Name + ".");
+                Console.WriteLine(
+                    "WARNING: There is not enough space on the "
+                        + DiscType + " for " + file.Name + "."
+                );
             }
             else
             {
                 files.Add(file);
-                Console.WriteLine("The " + fileType + " " + file.Name + " has been added to " + Name + ".");
+                Console.WriteLine(
+                    "The " + fileType + " " + file.Name + " has been added to " + Name + "."
+                );
             }
         }
 
         public void RunFile(MediaFile file)
         {
             SpinDisc();
-            if (FileIsPresent(file))
+            if (files.Contains(file))
             {
                 string verb = IsMusicCD ? "Playing " : "Opening file ";
                 Console.WriteLine(verb + file.Name + "...");
@@ -55,13 +62,19 @@
         {
             if (IsMusicCD)
             {
-                Console.WriteLine("Individual files cannot be removed from a music CD once written.");
-            } else {
+                Console.WriteLine(
+                    "Individual files cannot be removed from a music CD once written."
+                );
+            }
+            else
+            {
                 SpinDisc();
-                if (FileIsPresent(file))
+                if (files.Contains(file))
                 {
                     files.Remove(file);
-                    Console.WriteLine("The file " + file.Name + " has been removed from the " + DiscType + ".");
+                    Console.WriteLine(
+                        "The file " + file.Name + " has been removed from the " + DiscType + "."
+                    );
                 }
                 else
                 {
@@ -70,7 +83,7 @@
             }
         }
 
-        public void ReformatDisc()
+        public void Reformat()
         {
             SpinDisc();
             files.Clear();
@@ -80,4 +93,3 @@
         }
     }
 }
-

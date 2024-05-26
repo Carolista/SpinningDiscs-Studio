@@ -48,7 +48,7 @@ static void RunCDAndDVD()
     theNorthBorders.RunFile(festivalPoster);
 
     // Use reformatDisc() to wipe all files from the music CD, and then try to run a file from it
-    theNorthBorders.ReformatDisc();
+    theNorthBorders.Reformat();
     theNorthBorders.RunFile(transit);
 
     // Create a 720 MB MP4 file and try to write it to the CD that is no longer a music CD
