@@ -1,5 +1,7 @@
 ﻿using SpinningDiscs;
 
+// Class diagram: https://tinyurl.com/CSharpCh8StudioReviewFigJam
+
 /* CD AND DVD CLASSES */
 
 static void RunCDAndDVD()
