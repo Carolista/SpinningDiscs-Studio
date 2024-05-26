@@ -7,6 +7,7 @@ public class Frisbee : BaseDisc, IVariableRPM
 
     public Frisbee(string name, string discType) : base(name, discType, 0)
     {
+        Diameter = LookUpDiameter();
         SpinRate = CalculateSpinRate();
     }
 
@@ -34,17 +35,13 @@ public class Frisbee : BaseDisc, IVariableRPM
         Console.WriteLine("Hey, nice throw!");
     }
 
-    // Method required by IVariableRPM
-
     public int CalculateSpinRate()
     {
         const int avgFrisbeeMPH = 50;
         const int INCHES_PER_MILE = 63360;
 
-        double diameter = LookUpDiameter();
-
-        double rate = avgFrisbeeMPH * INCHES_PER_MILE / (diameter * Math.PI * 60);
-
+        double rate = avgFrisbeeMPH * INCHES_PER_MILE / (Diameter * Math.PI * 60);
         return (int)Math.Round(rate);
     }
+
 }

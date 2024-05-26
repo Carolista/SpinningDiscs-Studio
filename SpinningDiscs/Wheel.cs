@@ -8,7 +8,6 @@ public class Wheel : BaseDisc, IVariableRPM
     public Wheel(string name, int radius) : base(name, "wheel", 0)
     {
         Radius = radius;
-        SpinRate = CalculateSpinRate();
     }
 
     public override string ToString()
@@ -25,6 +24,7 @@ public class Wheel : BaseDisc, IVariableRPM
     {
         if (MilesPerHour > 0)
         {
+            SpinRate = CalculateSpinRate();
             SpinDisc();
             Console.WriteLine("You are traveling at " + MilesPerHour + " MPH. Please drive safely!");
         }
@@ -34,14 +34,13 @@ public class Wheel : BaseDisc, IVariableRPM
         }
     }
 
-    // Method required by IVariableRPM
-
     public int CalculateSpinRate()
     {
         const int INCHES_PER_MILE = 63360;
 
         double rate = MilesPerHour * INCHES_PER_MILE / (2 * Radius * Math.PI * 60);
-
         return (int)Math.Round(rate);
     }
+
+
 }
