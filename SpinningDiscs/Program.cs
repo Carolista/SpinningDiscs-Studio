@@ -9,7 +9,7 @@ dvd.SpinDisc();
 cd.ReadData();
 dvd.ReadData();
 
-Console.WriteLine(cd.WriteData(275));
+Console.WriteLine(cd.WriteData(275)); // there's a problem here
 Console.WriteLine(dvd.WriteData(8000));
 
 Console.WriteLine(cd.DiskInfo());

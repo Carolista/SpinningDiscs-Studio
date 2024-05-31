@@ -4,11 +4,11 @@ namespace SpinningDiscs
 	public abstract class BaseDisc
 	{
         public string Name { get; set; }
-        public int StorageCapacity { get; set; }
+        public int StorageCapacity { get; set; } // MB
         public int RemainingCapacity { get; set; }
         public int CapacityUsed { get; set; }
         public string DiskType { get; set; }
-        public List<string> Contents { get; set; }
+        public List<string> Contents { get; set; } // Never gets used
 
         public BaseDisc(string name, int maxCapacity, string disktype, int someUsedCapacity)
         {
@@ -19,6 +19,7 @@ namespace SpinningDiscs
             RemainingCapacity = SpaceLeft();
         }
 
+        // Used only in constructor
         public int CheckCapacity(int data)
         {
             if (StorageCapacity < data)
@@ -31,6 +32,7 @@ namespace SpinningDiscs
             }
         }
 
+        // Used only in constructor
         public int SpaceLeft()
         {
             return StorageCapacity - CapacityUsed;
@@ -38,7 +40,11 @@ namespace SpinningDiscs
 
         public string DiskInfo()
         {
-            string output = "Disk name: " + Name + "\nMax Capacity: " + StorageCapacity + "\nSpace Used: " + CapacityUsed + "\nAvailable Space: " + RemainingCapacity;
+            string output = 
+                "Disk name: " + Name 
+                + "\nMax Capacity: " + StorageCapacity 
+                + "\nSpace Used: " + CapacityUsed 
+                + "\nAvailable Space: " + RemainingCapacity;
             return output;
         }
 
@@ -49,7 +55,7 @@ namespace SpinningDiscs
                 return "Not enough disc space!";
             }
             CapacityUsed += size;
-            RemainingCapacity += size;
+            RemainingCapacity -= size; // mistake! need to subtract instead of add
 
             return "Data written to disc. Remaining space = " + RemainingCapacity;
         }
